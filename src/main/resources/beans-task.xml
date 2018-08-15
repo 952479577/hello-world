@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+         http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 定时器操作 -->
+
+	<!-- 要执行的任务 -->
+	<!-- <bean id="taskJob" class="com.yc.task.DataconversionTask" />
+	<bean id="jobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="taskJob"/>
+		<property name="targetMethod" value="run"/>
+	</bean>
+	<bean id="jobDetail-back"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="backUpDataBaseTask"/>
+		<property name="targetMethod" value="backUp"/>
+	</bean> -->
+
+	<!-- 调度触发器：执行的频率 -->
+	<!-- <bean id="myTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail" />
+		<property name="cronExpression" value="0/5 * * * * ?"/>
+	</bean>
+	<bean id="myTrigger-back"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="jobDetail-back" />
+		<property name="cronExpression" value="0/5 * * * * ?"/>
+	</bean> -->
+
+	<!-- 调度工厂：将计划和 -->
+	<bean id="scheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+			<!-- 加... -->
+				<!-- <ref bean="myTrigger" /> -->
+				<!-- <ref bean="myTrigger-back" /> -->
+			</list>
+		</property>
+	</bean>
+
+
+</beans>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yc.bean.StreetMapper">
+	<!-- 根据ID查询区下的所有的街道 -->
+	<select id="getStreetByDistrict" resultType="Street">
+		select * from street where district_id=#{district_id}
+	</select>
+</mapper>

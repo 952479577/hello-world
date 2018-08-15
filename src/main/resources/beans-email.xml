@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+         http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 邮件，权限... -->
+	
+	<!-- 使用qq邮箱  配置spring的javamail发送器，
+			这边配置了qq邮箱和qq企业邮箱的配置，需要注意的是host是不同的，
+			另外如果是个人qq邮箱，需要使用授权码，
+			授权码在qq邮箱中查看即可，
+			而企业邮箱就是企业管理员分配的登录密码即可 -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+			<!--         <property name="host" value="smtp.qq.com"/>   -->
+        <property name="host" value="smtp.qq.com"/>
+        <property name="port" value="587"/>
+        <property name="username" value="952479577@qq.com"/>
+        <!-- qq邮箱的授权码，如果是企业邮箱，则使用登录密码 -->
+        <property name="password" value="vlxmtswzifknbbab"/>
+        <property name="javaMailProperties">
+            <props >
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+
+</beans>
